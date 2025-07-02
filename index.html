@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazel Nighty</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #fff8f0;
+            color: #333;
+        }
+        header {
+            background: #a974bc;
+            color: #fff;
+            padding: 30px 0 15px 0;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #e6d1f2;
+            padding: 10px 0;
+        }
+        nav button {
+            background: none;
+            border: none;
+            color: #6c3483;
+            font-size: 1.1rem;
+            margin: 0 15px;
+            cursor: pointer;
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+        nav button.active, nav button:hover {
+            background: #a974bc;
+            color: #fff;
+        }
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .category-section {
+            display: none;
+            animation: fadeIn 0.7s;
+        }
+        .category-section.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(169,116,188,0.12);
+            padding: 18px 12px 12px 12px;
+            text-align: center;
+            transition: transform 0.16s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 4px 18px rgba(169,116,188,0.16);
+        }
+        .product-image {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            border-radius: 10px;
+            background: #f3e6fa;
+            margin-bottom: 12px;
+        }
+        .product-title {
+            font-size: 1.08rem;
+            font-weight: 500;
+            margin: 0;
+            color: #7d3c98;
+        }
+        @media (max-width: 700px) {
+            .category-section.active {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 18px;
+            }
+            .product-image {
+                height: 150px;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        footer {
+            background: #a974bc;
+            color: #fff;
+            text-align: center;
+            padding: 18px 0 10px 0;
+            margin-top: 40px;
+            font-size: 1rem;
+        }
+        @media (max-width: 700px) {
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 6px 0;
+    }
+    nav button {
+        width: 100%;
+        margin: 5px 0;
+        font-size: 1rem;
+        padding: 14px 0;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header style="
+    background: linear-gradient(135deg, #a974bc, #d4b0e2);
+    color: #fff;
+    padding: 50px 20px 60px 20px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 15px rgba(169,116,188,0.4);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+">
+    <h1 style="
+        font-size: 3.2rem;
+        margin: 0;
+        letter-spacing: 4px;
+        font-weight: 700;
+        text-shadow: 1px 1px 5px rgba(0,0,0,0.15);
+        font-family: 'Georgia', serif;
+    ">Hazel Nighty</h1>
+    <p style="
+        font-size: 1.4rem;
+        font-style: italic;
+        margin-top: 12px;
+        letter-spacing: 1.5px;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    ">Softness and Quality in Every Stitch</p>
+</header>
+
+    <nav>
+        <button class="active" onclick="showCategory('cotton')">Cotton Co-ord Set</button>
+        <button onclick="showCategory('alpine')">Alpine</button>
+        <button onclick="showCategory('hosiery')">Hosiery Short Nighty</button>
+        <button onclick="showCategory('satin')">Satin</button>
+        <button onclick="showCategory('kaftan')">Satin Kaftan</button>
+        <button onclick="showCategory('h_nightsuit')">Hosiery Night Suits</button>
+    </nav>
+    <main>
+        <!-- Cotton Co-ord Set -->
+        <section id="cotton" class="category-section active">
+            <!-- 8 products -->
+            <div class="product-card">
+                <img src="CC1.jpg" class="product-image" alt="Satin Kaftan 1">
+            </div>
+            <div class="product-card">
+                <img src="CC2.jpg" class="product-image" alt="Satin Kaftan 2">
+            </div>
+            <div class="product-card">
+                <img src="CC3.jpg" class="product-image" alt="Satin Kaftan 3">
+            </div>
+            <div class="product-card">
+                <img src="CC4.jpg" class="product-image" alt="Satin Kaftan 4">
+            </div>
+            <div class="product-card">
+                <img src="CC5.jpg" class="product-image" alt="Satin Kaftan 5">
+            </div>
+            <div class="product-card">
+                <img src="CC6.jpg" class="product-image" alt="Satin Kaftan 6">
+            </div>
+            <div class="product-card">
+                <img src="CC7.jpg" class="product-image" alt="Satin Kaftan 7">
+            </div>
+            <div class="product-card">
+                <img src="CC8.jpg" class="product-image" alt="Satin Kaftan 8">
+            </div>
+        </section>
+
+        <!-- Alpine -->
+        <section id="alpine" class="category-section">
+            <!-- 4 products -->
+            <div class="product-card">
+                <img src="A1.jpg" class="product-image" alt="Alpine 1">
+            </div>
+            <div class="product-card">
+                <img src="A2.jpg" class="product-image" alt="Alpine 2">
+            </div>
+            <div class="product-card">
+                <img src="A3.jpg" class="product-image" alt="Alpine 3">
+            </div>
+            <div class="product-card">
+                <img src="A4.jpg" class="product-image" alt="Alpine 4">
+            </div>
+        </section>
+
+        <!-- Hosiery Short Nighty -->
+        <section id="hosiery" class="category-section">
+            <!-- 4 products -->
+            <div class="product-card">
+                <img src="HS1.jpg" class="product-image" alt="Hosiery Short Nighty 1">
+            </div>
+            <div class="product-card">
+                <img src="HS2.jpg" class="product-image" alt="Hosiery Short Nighty 2">
+            </div>
+            <div class="product-card">
+                <img src="HS3.jpg" class="product-image" alt="Hosiery Short Nighty 3">
+            </div>
+            <div class="product-card">
+                <img src="HS4.jpg" class="product-image" alt="Hosiery Short Nighty 4">
+            </div>
+        </section>
+
+        <!-- Satin -->
+        <section id="satin" class="category-section">
+            <!-- 18 products -->
+            <!-- Loop for 18 products -->
+            <!-- You can replace these placeholders with your actual product images and names -->
+            <div class="product-card">
+                <img src="S1.jpg" class="product-image" alt="Satin 1">
+            </div>
+            <div class="product-card">
+                <img src="S2.jpg" class="product-image" alt="Satin 2">
+            </div>
+            <div class="product-card">
+                <img src="S3.jpg" class="product-image" alt="Satin 3">
+            </div>
+            <div class="product-card">
+                <img src="S4.jpg" class="product-image" alt="Satin 4">
+            </div>
+            <div class="product-card">
+                <img src="S5.jpg" class="product-image" alt="Satin 5">
+            </div>
+            <div class="product-card">
+                <img src="S6.jpg" class="product-image" alt="Satin 6">
+            </div>
+            <div class="product-card">
+                <img src="S7.jpg" class="product-image" alt="Satin 7">
+            </div>
+            <div class="product-card">
+                <img src="S8.jpg" class="product-image" alt="Satin 8">
+            </div>
+            <div class="product-card">
+                <img src="S9.jpg" class="product-image" alt="Satin 9">
+            </div>
+            <div class="product-card">
+                <img src="S10.jpg" class="product-image" alt="Satin 10">
+            </div>
+            <div class="product-card">
+                <img src="S11.jpg" class="product-image" alt="Satin 11">
+            </div>
+            <div class="product-card">
+                <img src="S12.jpg" class="product-image" alt="Satin 12">
+            </div>
+            <div class="product-card">
+                <img src="S13.jpg" class="product-image" alt="Satin 13">
+            </div>
+            <div class="product-card">
+                <img src="S14.jpg" class="product-image" alt="Satin 14">
+            </div>
+            <div class="product-card">
+                <img src="S15.jpg" class="product-image" alt="Satin 15">
+            </div>
+            <div class="product-card">
+                <img src="S16.jpg" class="product-image" alt="Satin 16">
+            </div>
+            <div class="product-card">
+                <img src="S17.jpg" class="product-image" alt="Satin 17">
+            </div>
+            <div class="product-card">
+                <img src="S18.jpg" class="product-image" alt="Satin 18">
+            </div>
+        </section>
+
+        <!-- Satin Kaftan -->
+        <section id="kaftan" class="category-section">
+            <!-- 6 products -->
+            <div class="product-card">
+                <img src="K1.jpg" class="product-image" alt="Satin Kaftan 1">
+            </div>
+            <div class="product-card">
+                <img src="K2.jpg" class="product-image" alt="Satin Kaftan 2">
+            </div>
+            <div class="product-card">
+                <img src="K3.jpg" class="product-image" alt="Satin Kaftan 3">
+            </div>
+            <div class="product-card">
+                <img src="K4.jpg" class="product-image" alt="Satin Kaftan 4">
+            </div>
+            <div class="product-card">
+                <img src="K5.jpg" class="product-image" alt="Satin Kaftan 5">
+            </div>
+            <div class="product-card">
+                <img src="K6.jpg" class="product-image" alt="Satin Kaftan 6">
+            </div>
+            <div class="product-card">
+                <img src="K7.jpg" class="product-image" alt="Satin Kaftan 7">
+            </div>
+            <div class="product-card">
+                <img src="K8.jpg" class="product-image" alt="Satin Kaftan 8">
+            </div>
+            <div class="product-card">
+                <img src="K9.jpg" class="product-image" alt="Satin Kaftan 9">
+            </div>
+            <div class="product-card">
+                <img src="K10.jpg" class="product-image" alt="Satin Kaftan 10">
+            </div>
+            <div class="product-card">
+                <img src="K11.jpg" class="product-image" alt="Satin Kaftan 11">
+            </div>
+            <div class="product-card">
+                <img src="K12.jpg" class="product-image" alt="Satin Kaftan 12">
+            </div>
+        </section>
+        <!-- Hosiery Night Suit -->
+        <section id="h_nightsuit" class="category-section">
+            <!-- 6 products -->
+            <div class="product-card">
+                <img src="HN1.jpg" class="product-image" alt="Hosiery Night Suit 1">
+            </div>
+            <div class="product-card">
+                <img src="HN2.jpg" class="product-image" alt="Hosiery Night Suit 2">
+            </div>
+            <div class="product-card">
+                <img src="HN3.jpg" class="product-image" alt="Hosiery Night Suit 3">
+            </div>
+            <div class="product-card">
+                <img src="HN4.jpg" class="product-image" alt="Hosiery Night Suit 4">
+            </div>
+            <div class="product-card">
+                <img src="HN5.jpg" class="product-image" alt="Hosiery Night Suit 5">
+            </div>
+            <div class="product-card">
+                <img src="HN6.jpg" class="product-image" alt="Hosiery Night Suit 6">
+            </div>
+            <div class="product-card">
+                <img src="HN7.jpg" class="product-image" alt="Hosiery Night Suit 7">
+            </div>
+            <div class="product-card">
+                <img src="HN8.jpg" class="product-image" alt="Hosiery Night Suit 8">
+            </div>
+        </section>
+    </main>
+    <!-- Contact Section -->
+<section id="contact" style="background:#f4e9fb; padding: 40px 20px; max-width: 1100px; margin: 40px auto 20px auto; border-radius: 12px; box-shadow: 0 0 15px rgba(169,116,188,0.1);">
+    <h2 style="color:#7d3c98; text-align:center; margin-bottom: 24px; font-size: 2rem;">Contact Us</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 30px; font-size: 1.1rem; color: #5a2e7a;">
+        <div style="flex: 1 1 250px; min-width: 250px;">
+            <h3 style="margin-bottom: 10px; color:#a974bc;">Email</h3>
+            <p><a href="mailto:hazelnighty@gmail.com" style="color:#6c3483; text-decoration:none;">hazelnighty@gmail.com</a></p>
+        </div>
+        <div style="flex: 1 1 250px; min-width: 250px;">
+            <h3 style="margin-bottom: 10px; color:#a974bc;">Phone</h3>
+            <p><a href="tel:+919867573100" style="color:#6c3483; text-decoration:none;">+91 98675 73100</a></p>
+        </div>
+        <div style="flex: 1 1 250px; min-width: 250px;">
+            <h3 style="margin-bottom: 10px; color:#a974bc;">Address</h3>
+            <p>F-77, 1st Floor<br>Dadar Manish Market<br>Mumbai - 400028<br>India</p>
+        </div>
+        <div style="flex: 1 1 250px; min-width: 250px;">
+            <h3 style="margin-bottom: 10px; color:#a974bc;">Business Hours</h3>
+            <p>Mon - Sat: 10:00 AM - 8:00 PM<br>Sun: Closed</p>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 30px;">
+    <h3 style="color:#a974bc; margin-bottom: 12px;">Follow Us</h3>
+    <a href="https://www.instagram.com/hazelnighty?igsh=MWExYmZsd3JwMHJucg==" style="margin: 0 12px; color:#6c3483; font-size: 2rem; text-decoration:none;" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://wa.me/9867573100" style="margin: 0 12px; color:#6c3483; font-size: 2rem; text-decoration:none;" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+        </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    &copy; 2025 VARDHAMAN Textiles. All rights reserved.
+</footer>
+
+    <script>
+        function showCategory(category) {
+            // Hide all categories
+            document.querySelectorAll('.category-section').forEach(section => section.classList.remove('active'));
+            // Show selected category
+            document.getElementById(category).classList.add('active');
+            // Update active button
+            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+            switch(category) {
+                case 'cotton': document.querySelectorAll('nav button')[0].classList.add('active'); break;
+                case 'alpine': document.querySelectorAll('nav button')[1].classList.add('active'); break;
+                case 'hosiery': document.querySelectorAll('nav button')[2].classList.add('active'); break;
+                case 'satin': document.querySelectorAll('nav button')[3].classList.add('active'); break;
+                case 'kaftan': document.querySelectorAll('nav button')[4].classList.add('active'); break;
+                case 'h_nightsuit': document.querySelectorAll('nav button')[5].classList.add('active'); break;
+
+            }
+        }
+    </script>
+</body>
+</html>
